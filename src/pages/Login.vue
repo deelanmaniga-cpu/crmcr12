@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref, onMounted } from 'vue'
+import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isAdmin = inject('isAdmin')
@@ -11,20 +11,12 @@ function submit() {
   error.value = ''
   if (pwd.value === 'admin23') {
     isAdmin.value = true
-    localStorage.setItem('isAdmin', 'true')   // сохраняем вход
+    localStorage.setItem('isAdmin', 'true') // сохраняем
     router.push('/admin')
   } else {
     error.value = 'Неверный пароль'
   }
 }
-
-onMounted(() => {
-  // проверка при загрузке страницы
-  if (localStorage.getItem('isAdmin') === 'true') {
-    isAdmin.value = true
-    router.push('/admin')
-  }
-})
 </script>
 
 <template>
@@ -41,13 +33,7 @@ onMounted(() => {
       <div style="margin-top:12px;display:flex;gap:8px">
         <button class="btn btn-primary" @click="submit">Войти</button>
       </div>
-      <p
-        v-if="error"
-        class="small"
-        style="color:#ff7a7a;margin-top:8px"
-      >
-        {{ error }}
-      </p>
+      <p v-if="error" class="small" style="color:#ff7a7a;margin-top:8px">{{ error }}</p>
     </div>
   </div>
 </template>
