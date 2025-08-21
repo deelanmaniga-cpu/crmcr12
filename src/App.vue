@@ -16,9 +16,10 @@ const goAdmin = () => r.push('/admin')
       <h1>CRM Offers</h1>
     </div>
     <div style="display:flex; gap:10px">
-      <button class="btn" @click="goHome">Поиск</button>
-      <button class="btn" @click="goAdmin">Админ</button>
-      <button v-else class="btn btn-danger" @click="isAdmin.value=false">Выйти</button>
+     <button class="btn" @click="goHome">Поиск</button>
+<button class="btn" @click="goAdmin">Админ</button>
+<button v-if="isAdmin.value" class="btn btn-danger" @click="isAdmin.value=false">Выйти</button>
+
     </div>
   </header>
   <div class="container">
