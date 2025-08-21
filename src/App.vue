@@ -18,7 +18,6 @@ const goAdmin = () => r.push('/admin')
     <div style="display:flex; gap:10px">
       <button class="btn" @click="goHome">Поиск</button>
       <button class="btn" @click="goAdmin">Админ</button>
-      <button v-if="!isAdmin.value" class="btn btn-primary" @click="goLogin">Вход</button>
       <button v-else class="btn btn-danger" @click="isAdmin.value=false">Выйти</button>
     </div>
   </header>
